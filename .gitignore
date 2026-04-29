@@ -1,1 +1,16 @@
 build
+
+# add exception for spec latex files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.gz
+*.toc
+
+# add an exception for these specific files
+.vscode/

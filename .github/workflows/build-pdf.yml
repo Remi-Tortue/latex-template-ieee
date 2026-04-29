@@ -11,16 +11,16 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: src/main.tex
+          root_file: src/root.tex
       - name: Copy pdf file
-        run: mkdir -p github_deploy && cp build/main.pdf github_deploy
+        run: mkdir -p github_deploy && cp build/root.pdf github_deploy
       - name: Release
         if: startsWith(github.ref, 'refs/tags/') # Only create a release when pushing to a tag
         uses: softprops/action-gh-release@v1
         with:
-          files: github_deploy/main.pdf
+          files: github_deploy/root.pdf
       - name: Deploy on orphan branch
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/root'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
